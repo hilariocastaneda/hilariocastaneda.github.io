@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hilario G. Castañeda Jr. | Senior Software Developer</title>
-  <meta name="description" content="Hilario G. Castañeda Jr. — Senior Software Developer specializing in OutSystems low-code, .NET and SQL Server. Based in Tarlac, Philippines.">
-  <meta property="og:title" content="Hilario G. Castañeda Jr. | Senior Software Developer">
-  <meta property="og:description" content="Senior Software Developer — OutSystems, .NET, SQL Server. 10 years building business applications.">
+  <title>Hilario Castañeda Jr. | Senior Developer · OutSystems &amp; .NET</title>
+  <meta name="description" content="Hilario Castañeda Jr. — Senior Developer and Lead Developer specializing in OutSystems and .NET enterprise solutions. Based in Capas, Central Luzon, Philippines.">
+  <meta property="og:title" content="Hilario Castañeda Jr. | Senior Developer · OutSystems &amp; .NET">
+  <meta property="og:description" content="Senior Developer building enterprise solutions with OutSystems and .NET. OutSystems certified (Reactive and ODC).">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0f172a">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EHC%3C/text%3E%3C/svg%3E">
@@ -81,12 +81,17 @@
 
     /* Hero */
     .hero { padding: 88px 0 64px; }
+    .avatar {
+      display: block; width: 132px; height: 132px; border-radius: 50%; object-fit: cover; object-position: center 30%;
+      border: 4px solid var(--surface); box-shadow: 0 0 0 2px var(--accent), var(--shadow); margin-bottom: 24px;
+    }
     .eyebrow {
       font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px;
       color: var(--accent); letter-spacing: .04em; margin: 0 0 14px;
     }
     .hero h1 { font-size: clamp(36px, 7vw, 60px); line-height: 1.05; letter-spacing: -.035em; margin: 0 0 18px; font-weight: 800; }
-    .hero p.lead { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+    .hero p.lead { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); max-width: 680px; margin: 0 0 28px; }
+    .hero p.lead strong { color: var(--text); font-weight: 600; }
     .cta { display: flex; flex-wrap: wrap; gap: 12px; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -115,25 +120,34 @@
     /* Timeline */
     .timeline { position: relative; padding-left: 28px; }
     .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
-    .job { position: relative; margin-bottom: 36px; }
+    .job { position: relative; margin-bottom: 40px; }
     .job:last-child { margin-bottom: 0; }
     .job::before {
       content: ""; position: absolute; left: -28px; top: 7px; width: 16px; height: 16px; border-radius: 50%;
       background: var(--surface); border: 3px solid var(--accent);
     }
+    .job.minor::before { border-color: var(--line); }
     .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
     .job h3 { margin: 0; font-size: 20px; letter-spacing: -.015em; }
+    .job.minor h3 { font-size: 17px; }
     .job .org { color: var(--muted); font-weight: 500; }
     .job .when { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--muted); white-space: nowrap; }
-    .projects { display: grid; gap: 14px; margin-top: 16px; }
-    .project { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow); }
-    .project-title { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-weight: 600; margin-bottom: 8px; }
+    .job-summary { color: var(--muted); margin: 10px 0 0; max-width: 760px; }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+    .project { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow); }
+    .project-title { font-weight: 600; margin-bottom: 4px; }
+    .project p { margin: 0; color: var(--muted); font-size: 14px; }
+    .lead-badge {
+      display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+      color: var(--accent); vertical-align: 2px;
+    }
+    .highlights { margin: 14px 0 0; padding-left: 18px; color: var(--muted); }
+    .highlights li { margin: 3px 0; }
+    .tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
     .tag {
       display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px;
       background: var(--accent-soft); color: var(--accent);
     }
-    .project ul { margin: 0; padding-left: 18px; color: var(--muted); }
-    .project li { margin: 3px 0; }
 
     /* Skills */
     .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
@@ -141,15 +155,16 @@
     .card h3 { margin: 0 0 14px; font-size: 16px; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip { border: 1px solid var(--line); border-radius: 8px; padding: 5px 11px; font-size: 14px; background: var(--bg); }
+    .chip.top { border-color: var(--accent); color: var(--accent); font-weight: 600; }
 
     /* Education & certs */
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
     .card .meta { color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
     .card p { margin: 0; color: var(--muted); font-size: 15px; }
     .cert { display: flex; gap: 14px; align-items: flex-start; }
-    .cert-year {
-      flex-shrink: 0; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px;
-      background: var(--accent-soft); color: var(--accent); border-radius: 8px; padding: 4px 8px;
+    .cert-badge {
+      flex-shrink: 0; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px;
+      background: var(--accent-soft); color: var(--accent); border-radius: 8px; padding: 4px 8px; min-width: 64px; text-align: center;
     }
     .cert h3 { margin: 0 0 4px; }
 
@@ -182,8 +197,8 @@
         <ul>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
           <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -195,12 +210,13 @@
     <div class="wrap">
       <!-- Hero -->
       <div class="hero">
-        <p class="eyebrow">// Senior Software Developer · Tarlac, Philippines</p>
-        <h1>Hilario G. Castañeda Jr.</h1>
+        <img class="avatar" src="profile.jpg" alt="Photo of Hilario Castañeda Jr." width="132" height="132" onerror="this.remove()">
+        <p class="eyebrow">// Senior Developer · OutSystems &amp; .NET · Capas, Central Luzon, PH</p>
+        <h1>Hilario Castañeda Jr.</h1>
         <p class="lead">
-          I build business applications with <strong>OutSystems</strong> and <strong>.NET</strong> — from gathering
-          requirements with clients to designing the UI, leading development, reviewing code and documenting the
-          solution architecture.
+          Senior Software Developer building enterprise solutions with <strong>OutSystems</strong> and <strong>.NET</strong>.
+          Currently <strong>Lead Developer at DB Results Philippines</strong>, handling solution architecture, technical
+          documentation, project estimation and client-facing work in an Agile environment.
         </p>
         <div class="cta">
           <a class="btn primary" href="mailto:hilariocastanedajr@gmail.com">
@@ -211,6 +227,10 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
             LinkedIn
           </a>
+          <a class="btn" href="https://www.outsystems.com/profile/jqq2q1e1sp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8"/></svg>
+            OutSystems
+          </a>
           <a class="btn" href="https://github.com/hilariocastaneda" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0C17.3 4.97 18.3 5.3 18.3 5.3c.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg>
             GitHub
@@ -218,10 +238,10 @@
         </div>
 
         <div class="stats">
-          <div class="stat"><b>10+</b><span>Years in software</span></div>
-          <div class="stat"><b>5</b><span>Featured projects</span></div>
-          <div class="stat"><b>OutSystems</b><span>Certified Associate</span></div>
-          <div class="stat"><b>MIT</b><span>Master's in progress</span></div>
+          <div class="stat"><b>9 yrs</b><span>Building enterprise solutions</span></div>
+          <div class="stat"><b>15+</b><span>Enterprise projects delivered</span></div>
+          <div class="stat"><b>2×</b><span>OutSystems certified (Reactive &amp; ODC)</span></div>
+          <div class="stat"><b>MIT</b><span>Master in Information Technology</span></div>
         </div>
       </div>
 
@@ -232,74 +252,71 @@
 
           <div class="job">
             <div class="job-head">
-              <h3>Senior Software Developer <span class="org">· DBResults Philippines</span></h3>
+              <h3>Senior Software Developer <span class="org">· DB Results Philippines</span></h3>
               <span class="when">Feb 2024 — Present</span>
             </div>
+            <p class="job-summary">
+              Lead Developer across multiple enterprise projects built on OutSystems and .NET — solution architecture,
+              technical documentation, project estimation and client collaboration. I regularly run code reviews, mentor
+              fellow developers and deliver in an Agile/Scrum environment.
+            </p>
             <div class="projects">
-              <div class="project">
-                <div class="project-title">Mobile Application for Nursing Students <span class="tag">OutSystems 11</span><span class="tag">Mobile</span></div>
-                <ul>
-                  <li>Develop the mobile applications.</li>
-                  <li>Perform code reviews with peers.</li>
-                  <li>Take part in client meetings and discussions.</li>
-                  <li>Documented the solution architecture and project.</li>
-                </ul>
-              </div>
-              <div class="project">
-                <div class="project-title">Credit Application <span class="tag">OutSystems 11</span></div>
-                <ul>
-                  <li>Led the development of the Credit module.</li>
-                  <li>Reviewed other developers' code and mentored junior developers.</li>
-                  <li>Joined client discussions and requirements gathering on the technical side of the project.</li>
-                  <li>Enhanced the user interface based on the initial mockups.</li>
-                  <li>Documented the solution architecture.</li>
-                </ul>
-              </div>
+              <div class="project"><div class="project-title">Auditor Evaluation App</div><p>Enterprise application for evaluating auditors.</p></div>
+              <div class="project"><div class="project-title">Store Creation Process</div><p>Workflow application for the store creation process.</p></div>
+              <div class="project"><div class="project-title">Application for Special Students</div><p>Student-facing application, including mobile.</p></div>
+              <div class="project"><div class="project-title">Mobile Prototype</div><p>Mobile prototype with SSO and push notification integration.</p></div>
+            </div>
+            <div class="tech">
+              <span class="tag">OutSystems Reactive</span><span class="tag">OutSystems Mobile</span><span class="tag">.NET Core</span><span class="tag">SQL</span>
             </div>
           </div>
 
           <div class="job">
             <div class="job-head">
-              <h3>Software Developer <span class="org">· Direct Sourcing Solutions</span></h3>
+              <h3>Mid Software Developer <span class="org">· Direct Sourcing Solutions</span></h3>
               <span class="when">Jul 2018 — Jan 2024</span>
             </div>
+            <p class="job-summary">
+              Delivered <strong>11 successful enterprise projects</strong> as a .NET and OutSystems developer across HR,
+              finance, security and logistics. Progressively took on leadership, serving as Lead Developer on several
+              projects — responsible for solution architecture documentation, code reviews, project estimation and
+              client-facing requirements gathering.
+            </p>
             <div class="projects">
-              <div class="project">
-                <div class="project-title">SMG Application <span class="tag">OutSystems 11</span></div>
-                <ul>
-                  <li>Led the development of enhancements.</li>
-                  <li>Reviewed other developers' code and mentored junior developers.</li>
-                  <li>Joined client discussions and requirements gathering on the technical side of the project.</li>
-                  <li>Designed mockups and user interfaces.</li>
-                </ul>
-              </div>
-              <div class="project">
-                <div class="project-title">QA Advice Notice Form <span class="tag">ASP.NET Core</span><span class="tag">Code First</span></div>
-                <ul>
-                  <li>Led feature development.</li>
-                  <li>Implemented the code-first approach and database connection.</li>
-                  <li>Designed mockups and user interfaces.</li>
-                  <li>Documented the solution architecture.</li>
-                </ul>
-              </div>
+              <div class="project"><div class="project-title">Capital Expenditure App<span class="lead-badge">Lead</span></div><p>OutSystems application for managing capital expenditure.</p></div>
+              <div class="project"><div class="project-title">Credit and Ratification System<span class="lead-badge">Lead</span></div><p>OutSystems system for credit applications and ratification.</p></div>
+              <div class="project"><div class="project-title">SMG App<span class="lead-badge">Lead</span></div><p>Led the enhancements; designed mockups and user interfaces.</p></div>
+              <div class="project"><div class="project-title">QA Advice Notice Form</div><p>ASP.NET Core app — led features and implemented the code-first database approach.</p></div>
+            </div>
+            <div class="tech">
+              <span class="tag">OutSystems Traditional</span><span class="tag">OutSystems Reactive</span><span class="tag">ASP.NET Core</span><span class="tag">.NET Core</span><span class="tag">VB.NET</span><span class="tag">SQL</span>
             </div>
           </div>
 
           <div class="job">
             <div class="job-head">
               <h3>Junior Programmer <span class="org">· Central Azucarera de Tarlac</span></h3>
-              <span class="when">Jun 2016 — Jun 2018</span>
+              <span class="when">Jun 2016 — Jul 2018</span>
             </div>
+            <p class="job-summary">
+              Developed and maintained full-stack applications for internal business operations. Handled deployment,
+              user training and basic network maintenance across company workstations.
+            </p>
             <div class="projects">
-              <div class="project">
-                <div class="project-title">Truck and Ticketing System <span class="tag">VB.NET</span></div>
-                <ul>
-                  <li>Solely developed the entire application.</li>
-                  <li>Gathered requirements and turned them into usable features.</li>
-                  <li>Deployed the application in-house and supported the end users.</li>
-                </ul>
-              </div>
+              <div class="project"><div class="project-title">Truck and Ticketing Production System</div><p>Built single-handedly — from requirements gathering to in-house deployment and end-user support.</p></div>
+              <div class="project"><div class="project-title">Document Version Controller</div><p>File sharing with version tracking.</p></div>
             </div>
+            <div class="tech">
+              <span class="tag">VB.NET</span><span class="tag">ASP.NET</span><span class="tag">Networking</span>
+            </div>
+          </div>
+
+          <div class="job minor">
+            <div class="job-head">
+              <h3>On-the-Job Training <span class="org">· Central Azucarera de Tarlac</span></h3>
+              <span class="when">Nov 2015 — Mar 2016</span>
+            </div>
+            <p class="job-summary">486-hour internship in San Miguel, Tarlac City.</p>
           </div>
 
         </div>
@@ -310,78 +327,95 @@
         <h2><small>02 — Skills</small>What I work with</h2>
         <div class="skill-groups">
           <div class="card">
-            <h3>Languages &amp; Frameworks</h3>
+            <h3>Platforms &amp; Frameworks</h3>
             <div class="chips">
-              <span class="chip">C#.NET</span>
-              <span class="chip">VB.NET</span>
+              <span class="chip top">OutSystems</span>
+              <span class="chip top">ASP.NET</span>
+              <span class="chip top">.NET Core</span>
               <span class="chip">ASP.NET MVC</span>
-              <span class="chip">ASP.NET Core</span>
+              <span class="chip">OutSystems ODC</span>
+              <span class="chip">Xamarin.Forms</span>
+              <span class="chip">Neptune</span>
+              <span class="chip">UiPath</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Languages &amp; Tools</h3>
+            <div class="chips">
+              <span class="chip">C#</span>
+              <span class="chip">VB.NET</span>
               <span class="chip">SQL</span>
               <span class="chip">JavaScript</span>
-              <span class="chip">GML</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Platforms &amp; Tools</h3>
-            <div class="chips">
-              <span class="chip">OutSystems Service Studio</span>
-              <span class="chip">Visual Studio</span>
               <span class="chip">Microsoft SQL Server</span>
-              <span class="chip">UiPath</span>
+              <span class="chip">Visual Studio</span>
               <span class="chip">Unity</span>
-              <span class="chip">GameMaker</span>
+              <span class="chip">GameMaker (GML)</span>
             </div>
           </div>
           <div class="card">
-            <h3>Practices</h3>
+            <h3>Leadership &amp; Delivery</h3>
             <div class="chips">
               <span class="chip">Solution Architecture</span>
+              <span class="chip">Technical Documentation</span>
+              <span class="chip">Project Estimation</span>
               <span class="chip">Code Review</span>
               <span class="chip">Mentoring</span>
+              <span class="chip">Agile / Scrum</span>
               <span class="chip">Requirements Gathering</span>
               <span class="chip">UI / Mockup Design</span>
-              <span class="chip">Client Communication</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education -->
-      <section id="education" class="reveal">
-        <h2><small>03 — Education</small>Academic background</h2>
-        <div class="grid-2">
-          <div class="card">
-            <h3>Master of Information Technology</h3>
-            <div class="meta">Systems Plus College Foundation · Angeles, Pampanga · Aug 2023 — Present</div>
-            <p>Graduate coursework: Operating Systems, Advanced Database Systems, Advanced Systems Analysis and Design, Business Intelligence, Web Services, Modelling. Undergraduate coursework: Network Management.</p>
-          </div>
-          <div class="card">
-            <h3>BS Information Technology</h3>
-            <div class="meta">STI College — Tarlac · Tarlac City · May 2016</div>
-            <p>Graduated with a 2.04 GWA and received an Academic Award.</p>
           </div>
         </div>
       </section>
 
       <!-- Certifications -->
       <section id="certifications" class="reveal">
-        <h2><small>04 — Certifications &amp; Awards</small>Credentials</h2>
+        <h2><small>03 — Certifications &amp; Awards</small>Credentials</h2>
         <div class="grid-2">
           <div class="card cert">
-            <span class="cert-year">2023</span>
-            <div><h3>OutSystems Associate Reactive Developer 11</h3><p>Passed the OutSystems Reactive Associate exam.</p></div>
+            <span class="cert-badge">ODC</span>
+            <div><h3>OutSystems Associate Developer (ODC)</h3><p>OutSystems Developer Cloud certification.</p></div>
           </div>
           <div class="card cert">
-            <span class="cert-year">2020</span>
+            <span class="cert-badge">2023</span>
+            <div><h3>OutSystems Associate Reactive Developer</h3><p>Passed the OutSystems Reactive Associate exam.</p></div>
+          </div>
+          <div class="card cert">
+            <span class="cert-badge">2020</span>
             <div><h3>UiPath RPA Associate</h3><p>Passed the UiPath certification exam.</p></div>
           </div>
           <div class="card cert">
-            <span class="cert-year">2018</span>
-            <div><h3>Civil Service Eligibility</h3><p>Passed the Civil Service Eligibility exam.</p></div>
+            <span class="cert-badge">2018</span>
+            <div><h3>Civil Service Exam (Professional)</h3><p>Passed the Civil Service Professional eligibility exam.</p></div>
           </div>
           <div class="card cert">
-            <span class="cert-year">2016</span>
-            <div><h3>Academic Awardee</h3><p>Completed my bachelor's degree with high marks.</p></div>
+            <span class="cert-badge">Neptune</span>
+            <div><h3>Neptune — Open Edition Advanced</h3><p>Advanced certification for the Neptune Open Edition platform.</p></div>
+          </div>
+          <div class="card cert">
+            <span class="cert-badge">Course</span>
+            <div><h3>Mastering Xamarin.Forms Development</h3><p>Part 1: Pages, Layout, and Navigation.</p></div>
+          </div>
+          <div class="card cert">
+            <span class="cert-badge">2016</span>
+            <div><h3>Academic Awardee</h3><p>STI College — completed my bachelor's degree with high marks.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="reveal">
+        <h2><small>04 — Education</small>Academic background</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Master in Information Technology</h3>
+            <div class="meta">Systems Plus College Foundation · Angeles, Pampanga · Aug 2023 — May 2025</div>
+            <p>Coursework: Operating Systems, Advanced Database Systems, Advanced Systems Analysis and Design, Business Intelligence, Web Services, Modelling.</p>
+          </div>
+          <div class="card">
+            <h3>BS Information Technology</h3>
+            <div class="meta">STI College — Tarlac · 2012 — May 2016</div>
+            <p>Graduated with a 2.04 GWA and received an Academic Award.</p>
           </div>
         </div>
       </section>
@@ -389,7 +423,7 @@
       <!-- Contact -->
       <section id="contact" class="contact reveal">
         <h2><small>05 — Contact</small>Let's work together</h2>
-        <p>Open to conversations about OutSystems and .NET projects, low-code delivery, and solution architecture.</p>
+        <p>Open to conversations about OutSystems and .NET projects, low-code delivery and solution architecture. I work in English and Filipino.</p>
         <div class="cta">
           <a class="btn primary" href="mailto:hilariocastanedajr@gmail.com">hilariocastanedajr@gmail.com</a>
           <a class="btn" href="https://www.linkedin.com/in/hilario-casta%C3%B1eda-jr" target="_blank" rel="noopener">Connect on LinkedIn</a>
@@ -399,7 +433,7 @@
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year">2026</span> Hilario G. Castañeda Jr. · Capas, Tarlac, Philippines</div>
+    <div class="wrap">© <span id="year">2026</span> Hilario Castañeda Jr. · Capas, Central Luzon, Philippines</div>
   </footer>
 
   <script>
