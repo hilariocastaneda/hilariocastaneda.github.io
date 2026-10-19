@@ -133,10 +133,28 @@
     .job .org { color: var(--muted); font-weight: 500; }
     .job .when { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--muted); white-space: nowrap; }
     .job-summary { color: var(--muted); margin: 10px 0 0; max-width: 760px; }
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
-    .project { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow); }
-    .project-title { font-weight: 600; margin-bottom: 4px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .filter {
+      font: inherit; font-size: 14px; font-weight: 500; cursor: pointer;
+      border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 999px; padding: 6px 14px;
+    }
+    .filter:hover { color: var(--text); }
+    .filter.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    :root[data-theme="dark"] .filter.active { color: #0b1120; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .filter.active { color: #0b1120; } }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+    .project {
+      display: flex; flex-direction: column; gap: 6px;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow);
+    }
+    .project[hidden] { display: none; }
+    .project-meta {
+      display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+      font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; color: var(--muted);
+    }
+    .project-title { font-weight: 600; line-height: 1.35; }
     .project p { margin: 0; color: var(--muted); font-size: 14px; }
+    .project .tech { margin-top: auto; padding-top: 6px; }
     .lead-badge {
       display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
       color: var(--accent); vertical-align: 2px;
@@ -196,6 +214,7 @@
       <nav>
         <ul>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#certifications">Certifications</a></li>
           <li><a href="#education">Education</a></li>
@@ -239,7 +258,7 @@
 
         <div class="stats">
           <div class="stat"><b>9 yrs</b><span>Building enterprise solutions</span></div>
-          <div class="stat"><b>15+</b><span>Enterprise projects delivered</span></div>
+          <div class="stat"><b>19</b><span>Projects delivered</span></div>
           <div class="stat"><b>2×</b><span>OutSystems certified (Reactive &amp; ODC)</span></div>
           <div class="stat"><b>MIT</b><span>Master in Information Technology</span></div>
         </div>
@@ -260,14 +279,8 @@
               technical documentation, project estimation and client collaboration. I regularly run code reviews, mentor
               fellow developers and deliver in an Agile/Scrum environment.
             </p>
-            <div class="projects">
-              <div class="project"><div class="project-title">Auditor Evaluation App</div><p>Enterprise application for evaluating auditors.</p></div>
-              <div class="project"><div class="project-title">Store Creation Process</div><p>Workflow application for the store creation process.</p></div>
-              <div class="project"><div class="project-title">Application for Special Students</div><p>Student-facing application, including mobile.</p></div>
-              <div class="project"><div class="project-title">Mobile Prototype</div><p>Mobile prototype with SSO and push notification integration.</p></div>
-            </div>
             <div class="tech">
-              <span class="tag">OutSystems Reactive</span><span class="tag">OutSystems Mobile</span><span class="tag">.NET Core</span><span class="tag">SQL</span>
+              <span class="tag">OutSystems ODC</span><span class="tag">OutSystems Reactive</span><span class="tag">OutSystems Mobile</span><span class="tag">.NET Core</span><span class="tag">SQL</span>
             </div>
           </div>
 
@@ -282,12 +295,6 @@
               projects — responsible for solution architecture documentation, code reviews, project estimation and
               client-facing requirements gathering.
             </p>
-            <div class="projects">
-              <div class="project"><div class="project-title">Capital Expenditure App<span class="lead-badge">Lead</span></div><p>OutSystems application for managing capital expenditure.</p></div>
-              <div class="project"><div class="project-title">Credit and Ratification System<span class="lead-badge">Lead</span></div><p>OutSystems system for credit applications and ratification.</p></div>
-              <div class="project"><div class="project-title">SMG App<span class="lead-badge">Lead</span></div><p>Led the enhancements; designed mockups and user interfaces.</p></div>
-              <div class="project"><div class="project-title">QA Advice Notice Form</div><p>ASP.NET Core app — led features and implemented the code-first database approach.</p></div>
-            </div>
             <div class="tech">
               <span class="tag">OutSystems Traditional</span><span class="tag">OutSystems Reactive</span><span class="tag">ASP.NET Core</span><span class="tag">.NET Core</span><span class="tag">VB.NET</span><span class="tag">SQL</span>
             </div>
@@ -299,13 +306,9 @@
               <span class="when">Jun 2016 — Jul 2018</span>
             </div>
             <p class="job-summary">
-              Developed and maintained full-stack applications for internal business operations. Handled deployment,
-              user training and basic network maintenance across company workstations.
+              Developed and maintained full-stack applications for internal business operations using VB.NET and
+              ASP.NET. Handled deployment, user training and basic network maintenance across company workstations.
             </p>
-            <div class="projects">
-              <div class="project"><div class="project-title">Truck and Ticketing Production System</div><p>Built single-handedly — from requirements gathering to in-house deployment and end-user support.</p></div>
-              <div class="project"><div class="project-title">Document Version Controller</div><p>File sharing with version tracking.</p></div>
-            </div>
             <div class="tech">
               <span class="tag">VB.NET</span><span class="tag">ASP.NET</span><span class="tag">Networking</span>
             </div>
@@ -322,9 +325,145 @@
         </div>
       </section>
 
+      <!-- Projects -->
+      <section id="projects" class="reveal">
+        <h2><small>02 — Projects</small>What I've built</h2>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" class="filter active" data-filter="all">All</button>
+          <button type="button" class="filter" data-filter="outsystems">OutSystems</button>
+          <button type="button" class="filter" data-filter="dotnet">.NET</button>
+          <button type="button" class="filter" data-filter="lead">Lead roles</button>
+        </div>
+        <div class="project-grid">
+
+          <article class="project" data-tags="outsystems">
+            <div class="project-meta"><span>DB Results</span><span>Feb 2026 — Present</span></div>
+            <div class="project-title">Vendor Accreditation and Bill of Quantities Application</div>
+            <div class="tech"><span class="tag">OutSystems ODC</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems">
+            <div class="project-meta"><span>DB Results</span><span>Jun 2025 — Jan 2026</span></div>
+            <div class="project-title">Auditor Evaluation App</div>
+            <div class="tech"><span class="tag">OutSystems</span><span class="tag">Requirements Analysis</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems">
+            <div class="project-meta"><span>DB Results</span><span>May 2025 — Jun 2025</span></div>
+            <div class="project-title">Store Creation Process</div>
+            <div class="tech"><span class="tag">OutSystems</span><span class="tag">SQL</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Systems Plus College · MIT</span><span>Nov 2024 — May 2025</span></div>
+            <div class="project-title">Learning Management System for New World Academy</div>
+            <p>A web application built for my Master in Information Technology.</p>
+            <div class="tech"><span class="tag">.NET Core</span><span class="tag">ASP.NET MVC</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems">
+            <div class="project-meta"><span>DB Results</span><span>Oct 2024</span></div>
+            <div class="project-title">Application for Nursing Students</div>
+            <p>Developed a prototype using OutSystems Mobile, integrating SSO and push notifications.</p>
+            <div class="tech"><span class="tag">OutSystems Mobile</span></div>
+          </article>
+
+          <article class="project" data-tags="">
+            <div class="project-meta"><span>DB Results</span><span>Aug 2024 — Apr 2025</span></div>
+            <div class="project-title">Application for Special Students</div>
+            <p>Software Developer.</p>
+          </article>
+
+          <article class="project" data-tags="outsystems lead">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Oct 2023 — Jan 2024</span></div>
+            <div class="project-title">SMG App<span class="lead-badge">Lead</span></div>
+            <p>Lead Developer for the project — assisted colleagues with coding, did code reviews and worked on the Solution Architecture Document.</p>
+            <div class="tech"><span class="tag">OutSystems Web Traditional</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems lead">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Aug 2023</span></div>
+            <div class="project-title">Credit and Ratification Web App<span class="lead-badge">Lead</span></div>
+            <p>Lead Developer for the Credit Module — assisted colleagues with coding, did code reviews and worked on the Solution Architecture Document.</p>
+            <div class="tech"><span class="tag">OutSystems Reactive 11</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems lead">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Jul 2022 — Nov 2022</span></div>
+            <div class="project-title">Capital Expenditure App<span class="lead-badge">Lead</span></div>
+            <p>Lead Developer for the CapEx Module — assisted colleagues with coding, did code reviews and worked on the Solution Architecture Document.</p>
+            <div class="tech"><span class="tag">OutSystems Web Traditional</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Feb 2022 — Jun 2022</span></div>
+            <div class="project-title">QA Application</div>
+            <div class="tech"><span class="tag">ASP.NET Core</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Nov 2021 — Feb 2022</span></div>
+            <div class="project-title">Centralized Conso System</div>
+            <div class="tech"><span class="tag">OutSystems Web Traditional</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Sep 2021 — Nov 2021</span></div>
+            <div class="project-title">Security Guards App</div>
+            <div class="tech"><span class="tag">OutSystems Web Reactive</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Aug 2021</span></div>
+            <div class="project-title">Archive API</div>
+            <div class="tech"><span class="tag">.NET Core</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Dec 2020</span></div>
+            <div class="project-title">Safety App</div>
+            <div class="tech"><span class="tag">ASP.NET Core</span></div>
+          </article>
+
+          <article class="project" data-tags="outsystems">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Apr 2020 — Jul 2020</span></div>
+            <div class="project-title">Consignment App</div>
+            <p>Software Developer.</p>
+            <div class="tech"><span class="tag">OutSystems Web Traditional</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Direct Sourcing Solutions</span><span>Jul 2018 — Dec 2018</span></div>
+            <div class="project-title">HR and Payroll System</div>
+            <div class="tech"><span class="tag">ASP.NET</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Central Azucarera de Tarlac</span><span>Jul 2016 — Jun 2018</span></div>
+            <div class="project-title">Truck and Ticketing Production System</div>
+            <p>Programmer.</p>
+            <div class="tech"><span class="tag">VB.NET</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Central Azucarera de Tarlac</span><span>2018</span></div>
+            <div class="project-title">Ticketing System</div>
+            <div class="tech"><span class="tag">VB.NET</span></div>
+          </article>
+
+          <article class="project" data-tags="dotnet">
+            <div class="project-meta"><span>Central Azucarera de Tarlac</span><span>Dec 2015 — Feb 2016</span></div>
+            <div class="project-title">Document Version Controller</div>
+            <p>A specialized document version controller for CAT, with file sharing and version tracking.</p>
+            <div class="tech"><span class="tag">VB.NET</span></div>
+          </article>
+
+        </div>
+      </section>
+
       <!-- Skills -->
       <section id="skills" class="reveal">
-        <h2><small>02 — Skills</small>What I work with</h2>
+        <h2><small>03 — Skills</small>What I work with</h2>
         <div class="skill-groups">
           <div class="card">
             <h3>Platforms &amp; Frameworks</h3>
@@ -370,7 +509,7 @@
 
       <!-- Certifications -->
       <section id="certifications" class="reveal">
-        <h2><small>03 — Certifications &amp; Awards</small>Credentials</h2>
+        <h2><small>04 — Certifications &amp; Awards</small>Credentials</h2>
         <div class="grid-2">
           <div class="card cert">
             <span class="cert-badge">ODC</span>
@@ -405,7 +544,7 @@
 
       <!-- Education -->
       <section id="education" class="reveal">
-        <h2><small>04 — Education</small>Academic background</h2>
+        <h2><small>05 — Education</small>Academic background</h2>
         <div class="grid-2">
           <div class="card">
             <h3>Master in Information Technology</h3>
@@ -422,7 +561,7 @@
 
       <!-- Contact -->
       <section id="contact" class="contact reveal">
-        <h2><small>05 — Contact</small>Let's work together</h2>
+        <h2><small>06 — Contact</small>Let's work together</h2>
         <p>Open to conversations about OutSystems and .NET projects, low-code delivery and solution architecture. I work in English and Filipino.</p>
         <div class="cta">
           <a class="btn primary" href="mailto:hilariocastanedajr@gmail.com">hilariocastanedajr@gmail.com</a>
@@ -447,6 +586,20 @@
       var next = current === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
       try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+
+    // Project filters
+    var filters = document.querySelectorAll(".filter");
+    var projects = document.querySelectorAll(".project-grid .project");
+    filters.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var f = btn.getAttribute("data-filter");
+        filters.forEach(function (b) { b.classList.toggle("active", b === btn); });
+        projects.forEach(function (p) {
+          var tags = (p.getAttribute("data-tags") || "").split(" ");
+          p.hidden = f !== "all" && tags.indexOf(f) === -1;
+        });
+      });
     });
 
     // Fade sections in as they scroll into view
